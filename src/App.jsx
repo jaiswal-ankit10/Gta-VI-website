@@ -29,6 +29,25 @@ const App = () => {
       },
     });
   });
+
+  useGSAP(() => {
+    if (!showContent) return;
+
+    const main = document.querySelector(".main");
+
+    main?.addEventListener("mousemove", (e) => {
+      const xMove = (e.clientX / window.innerWidth - 0.5) * 40;
+      gsap.to(".main .text", {
+        x: `${xMove - 0.4}%`,
+      });
+      gsap.to(".sky", {
+        x: xMove,
+      });
+      gsap.to(" .bg", {
+        x: xMove * 1.7,
+      });
+    });
+  }, [showContent]);
   return (
     <>
       <div className="svg flex items-center justify-center fixed top-0 left-0 z-100 w-full h-screen overflow-hidden bg-[#000]">
@@ -61,7 +80,7 @@ const App = () => {
         </svg>
       </div>
       {showContent && (
-        <div className="main  w-full h-screen ">
+        <div className="main w-full h-screen rotate-[-10deg] scale-[1.7]">
           <div className="landing relative w-full h-screen bg-black overflow-hidden">
             <div className="navbar absolute top-0 left-0  z-10 py-10 px-10">
               <div className="logo flex gap-7">
@@ -77,12 +96,12 @@ const App = () => {
             </div>
             <div className="imagesdiv">
               <img
-                className="absolute sky  top-0 left-0 w-full h-full object-cover"
+                className="absolute sky scale-[1.5] top-0 left-0 w-full h-full object-cover rotate-[-20deg]"
                 src="./sky.png"
                 alt=""
               />
               <img
-                className="absolute  bg top-0 left-0 w-full h-full object-cover"
+                className="absolute scale-[1.8] bg top-0 left-0 w-full h-full object-cover rotate-3"
                 src="./bg.png"
                 alt=""
               />
@@ -92,7 +111,7 @@ const App = () => {
                 <h1 className="text-[12rem] leading-none -ml-40">auto</h1>
               </div>
               <img
-                className="absolute character left-1/2 -bottom-90 -translate-x-1/2  "
+                className="absolute character -bottom-[150%] left-1/2 -translate-x-1/2  scale-[3] rotate-[-20deg]"
                 src="./girlbg.png"
                 alt=""
               />
@@ -109,6 +128,44 @@ const App = () => {
                 src="./ps5.png"
                 alt=""
               />
+            </div>
+          </div>
+          <div className="w-full h-screen bg-black flex items-center justify-center">
+            <div className="cntner w-full h-[80%] flex text-white">
+              <div className="left w-1/2 relative">
+                <img
+                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 scale-[1.3]"
+                  src="./imag.png"
+                  alt=""
+                />
+              </div>
+              <div className="right w-[30%] py-30">
+                <h1 className="text-8xl">Still Running,</h1>
+                <h1 className="text-8xl">Not Hunting</h1>
+                <p className="mt-10 text-xl font-[Helvetica_Now_Display]">
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                  Distinctio possimus, asperiores nam, omnis inventore nesciunt
+                  a architecto eveniet saepe, ducimus necessitatibus at
+                  voluptate.
+                </p>
+                <p className="mt-3 text-xl font-[Helvetica_Now_Display]">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. At
+                  eius illum fugit eligendi nesciunt quia similique velit
+                  excepturi soluta tenetur illo repellat consectetur laborum
+                  eveniet eaque, dicta, hic quisquam? Ex cupiditate ipsa nostrum
+                  autem sapiente.
+                </p>
+                <p className="mt-10 text-xl font-[Helvetica_Now_Display]">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. At
+                  eius illum fugit eligendi nesciunt quia similique velit
+                  excepturi soluta tenetur illo repellat consectetur laborum
+                  eveniet eaque, dicta, hic quisquam? Ex cupiditate ipsa nostrum
+                  autem sapiente.
+                </p>
+                <button className="bg-yellow-500 text-black text-4xl mt-10 px-10 py-10 cursor-pointer">
+                  Download Now
+                </button>
+              </div>
             </div>
           </div>
         </div>
