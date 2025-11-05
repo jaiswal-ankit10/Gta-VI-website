@@ -33,6 +33,44 @@ const App = () => {
   useGSAP(() => {
     if (!showContent) return;
 
+    gsap.to(".main", {
+      scale: 1,
+      rotate: 0,
+      duration: 2,
+      delay: "-1",
+      ease: "Expo.easeInOut",
+    });
+    gsap.to(".sky", {
+      scale: 1.1,
+      rotate: 0,
+      duration: 2,
+      delay: "-.8",
+      ease: "Expo.easeInOut",
+    });
+    gsap.to(".bg", {
+      scale: 1.1,
+      rotate: 0,
+      duration: 2,
+      delay: "-.8",
+      ease: "Expo.easeInOut",
+    });
+    gsap.to(".text", {
+      scale: 1,
+      rotate: 0,
+      duration: 2,
+      delay: "-.8",
+      ease: "Expo.easeInOut",
+    });
+    gsap.to(".character", {
+      scale: 1.4,
+      x: "-50%",
+      bottom: "-25%",
+      rotate: 0,
+      duration: 2,
+      delay: "-.8",
+      ease: "Expo.easeInOut",
+    });
+
     const main = document.querySelector(".main");
 
     main?.addEventListener("mousemove", (e) => {
